@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Authentication</title>
+</head>
+<body>
+    <h1>welcome {{ username }} </h1>
+    <div class="containter" style="margin-top:10%; width:100%">
+    <div class="row" style="width:80%; margin-left:10%">
+        <div class="col-xs-4 col-xs-offset-4" style="width:100%; margin-left:0px;">
+            <div class="panel panel-default" style="width: 300px; margin: 0 auto">
+                  <div class="panel-heading">
+                          <h3 class="panel-title">London Enterprise Network Login - email code check</h3>
+                    </div>
+                 <div class="panel-body">
+                         <form action="/login/?from_page={{ previous_page }}" method="POST">
+                             {% csrf_token %}
+                            <label for="auth_code">code </label>
+                            <input name="code" class="form-control" placeholder="enter code here" required="" id="id_username_or_email" type="text">
+                            <p class="text-danger"></p>
+
+                            <span class="pull-left text-danger"></span>
+                            <div class="clearfix"></div>
+                            <!--<a href="/forgot_password/" class="pull_left">forget password</a>-->
+                             <input value="submit" class="btn btn-primary pull-right" type="submit" >
+                             <!--<button type="button" onclick="alert('code sent!')">acquire code</button>-->
+                        </form>
+                        <form action='/send_code' method='GET'>
+                                <button type='submit'>acquire code</button>
+                        </form>
+
+                </div>
+            </div>
+
+    </div>
+
+    </div>
+    </div>
+</body>
+</html>
